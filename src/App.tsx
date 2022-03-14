@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Button } from './components/Button';
+
+import "./style/reset.css"
+import "./style/style.css"
 
 function App() {
+
+  const simbols : (string | number)[] = [0, "=", ".", "/", 7, 8, 9, "X", 4, 5, 6, "-", 1, 2, 3, "+", "ON", "C", "%"];
+  //const showDisplay = useState();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className='calculator__container'>
+      <input 
+      className='visor__calculator'
+      type="text"
+      contentEditable="false" />
+      <ul className='buttons__list'>
+          {simbols.map((value, index) => {
+            return <Button
+            value={value}
+            />
+          })}
+      </ul>
+    </main>
   );
 }
 

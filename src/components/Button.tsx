@@ -1,22 +1,31 @@
-    import { FormEvent } from 'react';
+    import { FormEvent, useEffect, useState } from 'react';
 
     type buttonProps = {
         value : string | number,
-        //key : string,
     }
 
+    
     export function Button(props : buttonProps){
 
+        let clickedButton = "";
+        const displayCalc =  document.getElementById('visor__calculator') as HTMLInputElement;
+        
+        const [aritmetica, setAritmetica] = useState('');
+        
         function handleShowNumberInput(event : FormEvent){
-            const clickedButton = event.currentTarget.innerHTML;
-            console.log(clickedButton);
-            //let displayCalculator = document.querySelector(`.visor__calculator`);
-            //console.log(displayCalculator);
+
+            clickedButton = event.currentTarget.innerHTML;
+            setAritmetica(clickedButton);
+
+            displayCalc.value = String(displayCalc.value) + String(aritmetica);
         }
+
+        
+        
 
         return(
             <li className='buttons__itens' onClick={handleShowNumberInput}>
                 {props.value}
-                </li>
+            </li>
         );
     }

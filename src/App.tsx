@@ -9,7 +9,7 @@ type ValueDisplayProps = string | number;
 
 function App() {
 
-  const simbols : (string | number)[] = [0, "=", ".", "/", 7, 8, 9, "X", 4, 5, 6, "-", 1, 2, 3, "+", "ON", "C", "%"];
+  const simbols : (string | number)[] = ["0", "=", ".", "/", "7", "8", "9", "*", "4", "5", "6", "-", "1", "2", "3", "+", "ON", "C", "%"];
   
   return (
     <main className='calculator__container'>

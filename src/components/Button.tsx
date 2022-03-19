@@ -17,7 +17,15 @@
             clickedButton = event.currentTarget.innerHTML;
             setAritmetica(clickedButton);
 
-            displayCalc.value = String(displayCalc.value) + String(aritmetica);
+            if(clickedButton === "ON" || clickedButton === "C"){
+                displayCalc.value = "";
+            }else if(clickedButton === "="){
+                let infoDisplay = displayCalc.value;
+                displayCalc.value = (eval(`${infoDisplay}`));
+                //preciso verificar a expressao numerica, e onde tiver os operadores substituir por operadores do js. * / + - etc...
+            }else{
+                displayCalc.value = String(displayCalc.value) + String(aritmetica);
+            }
         }
 
         
